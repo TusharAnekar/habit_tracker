@@ -4,6 +4,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import UnarchiveIcon from "@mui/icons-material/Unarchive";
 
 import { useHabitContext } from "../contexts/habit-context";
+import { toast } from "react-toastify";
 
 const HabitCard = ({ habit, isArchive }) => {
   const { setHabits } = useHabitContext();
@@ -22,15 +23,18 @@ const HabitCard = ({ habit, isArchive }) => {
   const handleArchive = () => {
     setHabits({ type: "REMOVE_HABIT", payload: habit.id });
     setHabits({ type: "ADD_HABIT_TO_ARCHIVE", payload: habit });
+    toast.success("Habit archived successfully.");
   };
 
   const handleDelete = () => {
     setHabits({ type: "REMOVE_HABIT", payload: habit.id });
+    toast.success("Habit deleted successfully.");
   };
 
   const handleUnarchive = () => {
     setHabits({ type: "ADD_HABIT", payload: habit });
     setHabits({ type: "UNARCHIVE", payload: habit.id });
+    toast.success("Habit unarchived successfully.");
   };
 
   return (

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import CloseIcon from "@mui/icons-material/Close";
 import { useHabitContext } from "../contexts/habit-context";
+import { toast } from "react-toastify";
 
 const HabitModal = () => {
   const habitForm = useRef();
@@ -39,14 +40,14 @@ const HabitModal = () => {
     if (id) {
       setHabits({ type: "EDIT_HABIT", payload: habitDetails });
       setHabits({ type: "SET_HABIT_TO_EDIT", payload: {} });
+      toast.success("Habit edited successfully.");
     } else {
       setHabitDetials({ ...habitDetails, id: originalHabits.length + 1 });
-
       setHabits({ type: "ADD_HABIT", payload: habitDetails });
+      toast.success("Habit added successfully.");
     }
 
     setHabits({ type: "TOGGLE_IS_SHOW_ADD_HABIT_MODAL" });
-
     habitForm.current.close();
   };
 
