@@ -47,11 +47,13 @@ const HabitCard = ({ habit, isArchive }) => {
           <EditIcon onClick={handleEdit} className="cursor-pointer" />
         )}
         {isArchive ? (
-          <UnarchiveIcon onClick={handleUnarchive} />
+          <UnarchiveIcon onClick={handleUnarchive} className="cursor-pointer" />
         ) : (
-          <ArchiveIcon onClick={handleArchive} />
+          <ArchiveIcon onClick={handleArchive} className="cursor-pointer" />
         )}
-        {!isArchive && <DeleteIcon onClick={handleDelete} />}
+        {!isArchive && (
+          <DeleteIcon onClick={handleDelete} className="cursor-pointer" />
+        )}
       </div>
     </div>
   );
