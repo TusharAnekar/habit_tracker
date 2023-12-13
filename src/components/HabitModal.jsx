@@ -67,105 +67,106 @@ const HabitModal = () => {
         />
       </div>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-2">
         <div>
-          <label htmlFor="habit-id" className="mr-4">
+          <label htmlFor="habit-id" className="block font-semibold">
             Id:
           </label>
           <input
             type="number"
             name="id"
             id="habit-id"
+            className="w-full rounded-lg border border-black p-2"
             readOnly
             value={id ? id : originalHabits.length + 1}
           />
         </div>
-        <div className="mb-2">
-          <label htmlFor="habit-name" className="mr-4 font-semibold">
+        <div>
+          <label htmlFor="habit-name" className="block font-semibold">
             Name:
           </label>
           <input
+            required
             type="text"
             name="name"
             id="habit-name"
             defaultValue={id ? name : ""}
-            required
-            className="rounded-lg border border-black p-2"
+            className="w-full rounded-lg border border-black p-2"
             onChange={handleInput}
           />
         </div>
 
-        <div className="mb-2 flex justify-between ">
-          <div className="w-1/2">
-            <label htmlFor="habit-repeat" className="mr-4 font-semibold">
-              Repeat:
-            </label>
-            <select
-              name="repeat"
-              id="habit-repeat"
-              defaultValue={id ? repeat : ""}
-              required
-              className="rounded-lg border border-black p-2"
-              onChange={handleInput}
-            >
-              <option value="Daily">Daily</option>
-              <option value="Weekly">Weekly</option>
-              <option value="Monthly">Monthly</option>
-              <option value="Yearly">Yearly</option>
-            </select>
-          </div>
-          <div className="w-1/2">
-            <label htmlFor="goal-repeat" className="mr-4 font-semibold">
-              Goal:
-            </label>
-            <select
-              name="goal"
-              id="goal-repeat required"
-              defaultValue={id ? goal : ""}
-              required
-              className="rounded-lg border border-black p-2"
-              onChange={handleInput}
-            >
-              <option value="1 times Daily">1 times Daily</option>
-              <option value="2 times Daily">2 times Daily</option>
-              <option value="1 times Weekly">1 times Weekly</option>
-              <option value="2 times Weekly">2 times Weekly</option>
-              <option value="1 times Monthly">1 times Monthly</option>
-              <option value="2 times Monthly">2 times Monthly</option>
-              <option value="1 times Yearly">1 times Yearly</option>
-              <option value="2 times Yearly">2 times Yearly</option>
-            </select>
-          </div>
+        <div>
+          <label htmlFor="habit-repeat" className="block font-semibold">
+            Repeat:
+          </label>
+          <select
+            name="repeat"
+            id="habit-repeat"
+            defaultValue={id ? repeat : ""}
+            required
+            className="w-full rounded-lg border border-black p-2"
+            onChange={handleInput}
+          >
+            <option value="">Select</option>
+            <option value="Daily">Daily</option>
+            <option value="Weekly">Weekly</option>
+            <option value="Monthly">Monthly</option>
+            <option value="Yearly">Yearly</option>
+          </select>
         </div>
 
-        <div className="flex justify-between">
-          <div className="w-1/2">
-            <label htmlFor="habit-time" className="mr-4 font-semibold">
-              Time
-            </label>
-            <input
-              type="time"
-              name="time"
-              id="habit-time"
-              defaultValue={id ? time : ""}
-              required
-              className="rounded-lg border border-black p-2"
-              onChange={handleInput}
-            />
-          </div>
-          <div className="w-1/2">
-            <label htmlFor="habit-date" className="font-semibold">
-              Date:
-            </label>
-            <input
-              type="date"
-              name="date"
-              id="habit-date"
-              defaultValue={id ? date : ""}
-              required
-              onChange={handleInput}
-            />
-          </div>
+        <div>
+          <label htmlFor="goal-repeat" className="block font-semibold">
+            Goal:
+          </label>
+          <select
+            name="goal"
+            id="goal-repeat required"
+            defaultValue={id ? goal : ""}
+            required
+            className="w-full rounded-lg border border-black p-2"
+            onChange={handleInput}
+          >
+            <option value="">Select</option>
+            <option value="1 times Daily">1 times Daily</option>
+            <option value="2 times Daily">2 times Daily</option>
+            <option value="1 times Weekly">1 times Weekly</option>
+            <option value="2 times Weekly">2 times Weekly</option>
+            <option value="1 times Monthly">1 times Monthly</option>
+            <option value="2 times Monthly">2 times Monthly</option>
+            <option value="1 times Yearly">1 times Yearly</option>
+            <option value="2 times Yearly">2 times Yearly</option>
+          </select>
+        </div>
+
+        <div>
+          <label htmlFor="habit-time" className="block font-semibold">
+            Time
+          </label>
+          <input
+            type="time"
+            name="time"
+            id="habit-time"
+            defaultValue={id ? time : ""}
+            required
+            className="w-full rounded-lg border border-black p-2"
+            onChange={handleInput}
+          />
+        </div>
+        <div>
+          <label htmlFor="habit-date" className="block font-semibold">
+            Date:
+          </label>
+          <input
+            type="date"
+            name="date"
+            id="habit-date"
+            defaultValue={id ? date : ""}
+            className="w-full rounded-lg border border-black p-2"
+            required
+            onChange={handleInput}
+          />
         </div>
 
         {id ? (

@@ -7,8 +7,6 @@ const Home = () => {
     setHabits,
   } = useHabitContext();
 
-  console.log(originalHabits);
-
   const handleNewHabit = () => {
     setHabits({ type: "TOGGLE_IS_SHOW_ADD_HABIT_MODAL" });
   };
